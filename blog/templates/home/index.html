@@ -15,7 +15,7 @@
             <div class="card" style="width: 100%;">
                 <img src="{{ protada.image.url }}">
                 <div class="card-section">
-                  <h4>{{ protada.title }}</h4>
+                  <h4><a href="{% url 'entrada_app:detail-entry' protada.id %}">{{ protada.title }}</a></h4>
                   <p>{{ protada.resume | truncatechars:100 }}</p>
                 </div>
             </div>
@@ -31,7 +31,8 @@
                     <div class="card" style="width: 100%;">
                         <img src="{{ a.image.url }}" style="height: 150px;">
                         <div class="card-section">
-                        <h5>{{ a.title | truncatechars:40}}</h5>
+                        <h5><a href="{% url 'entrada_app:detail-entry' a.id %}">{{ a.title | truncatechars:40}}</a></h5>
+                        <p>{{ a.resume | truncatechars:100 }}</p>
                         </div>
                     </div>
                 </div>
@@ -58,14 +59,16 @@
             <!-- This is the first modal -->
             <div class="reveal" id="exampleModal2" data-reveal style="width: 300px;">
                 <p class="lead">Ingresa tu correo</p>
-                <form class="grid-x grid-margin-x">
+
+                <form class="grid-x grid-margin-x" method="POST" action="{% url 'home_app:suscription' %}">{% csrf_token %}
                     <div class="cell small-12">
-                        <input type="text" placeholder="E-mail..">
+                        {{ form.as_p }}
                     </div>
                     <div class="cell small-12">
-                        <button type="button" class="success button">Suscribirme</button>
+                        <button type="submit" class="success button">Suscribirme</button>
                     </div>
                 </form>
+
             </div>
 
         </div>
@@ -80,10 +83,10 @@
         {% for r in recientes %}
             
             <div class="cell small-6 large-4">
-                <div class="card" style="width: 100%;">
+                <div class="card" style="width: 100%; width: 300px;">
                     <img src="{{ r.image.url }}">
                     <div class="card-section">
-                        <h4>{{ r.title | truncatechars:40}}</h4>
+                        <h4><a href="{% url 'entrada_app:detail-entry' r.id %}">{{ r.title | truncatechars:40}}</a></h4>
                         <p>{{ r.resume | truncatechars:100 }}</p>
                     </div>
                 </div>

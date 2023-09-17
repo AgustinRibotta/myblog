@@ -29,7 +29,7 @@ class Category (TimeStampedModel):
         
     def __str__(self):
         
-        return self.name
+        return self.short_name
     
 
 # Etiquetas de articulos

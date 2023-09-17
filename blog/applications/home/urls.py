@@ -7,7 +7,17 @@ app_name = "home_app"
 urlpatterns = [
     path(
         '', 
-        views.HomePageView.as_view(),
+        views.HomePageViewTemplateView.as_view(),
         name='index',
     ),  
+    path(
+        'register-suscription', 
+        views.SuscriberCreateView.as_view(),
+        name='suscription',
+    ), 
+    path(
+        'register-contact', 
+        views.ContacCreateView.as_view(),
+        name='contact',
+    ),   
 ]
