@@ -83,8 +83,8 @@
         {% for r in recientes %}
             
             <div class="cell small-6 large-4">
-                <div class="card" style="width: 100%; width: 300px;">
-                    <img src="{{ r.image.url }}">
+                <div class="card" style="width: 100%; ">
+                    <img style="height: 150px;" src="{{ r.image.url }}">
                     <div class="card-section">
                         <h4><a href="{% url 'entrada_app:detail-entry' r.id %}">{{ r.title | truncatechars:40}}</a></h4>
                         <p>{{ r.resume | truncatechars:100 }}</p>

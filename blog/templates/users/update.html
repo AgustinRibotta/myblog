@@ -40,19 +40,9 @@
                             {{ form.date_birth }}
                             </label>
                         </div>
-                        <div class="cell medium-12">
-                            <label>Contraseña:
-                            {{ form.password1 }}
-                            </label>
-                        </div>
-                        <div class="cell medium-12">
-                            <label>Repetir Contraseña:
-                            {{ form.password2 }}
-                            </label>
-                        </div>
-                        <button type="submit" class="cell hollow button primary">Registrar</button>
+                        <button type="submit" class="cell hollow button primary">Actualizar</button>
                     </form>
-                    <a href="{% url 'users_app:user-login' %}" type="submit" class="cell hollow button alert">Return</a>
+                    <a href="{% url 'users_app:user-update-password' %}" type="submit" class="cell hollow button alert">Actualizar Contrase;a</a>
                 </div>
             </div>
         </div>

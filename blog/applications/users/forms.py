@@ -114,3 +114,17 @@ class UpdatePasswordForm(forms.Form):
             }
         )
     )
+
+
+class UpdateForm(forms.ModelForm):
+
+    class Meta:
+
+        model = User
+        fields = (
+            'email',
+            'full_name',
+            'ocupation',
+            'genero',
+            'date_birth',
+        )

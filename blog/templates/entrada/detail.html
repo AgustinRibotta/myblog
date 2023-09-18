@@ -11,27 +11,29 @@
         <h3 class="cell">{{ object.title }}</h3>
 
         <!-- bloque de contenido del articulo -->
-        <div class="cell large-8">
+        <div class="cell large-6">
             <div class="cell callout primary">
                 <h5>Resumen:</h5>
                 <p>{{ entry.resume }}</p>
             </div>
             <div>
                 <p>{{ entry.content | safe }}</p>
+            </div>
         </div>
         <!-- FIN bloque contenido del articulo -->
-
+        
         <!-- bloque llamada a la accion -->
         <div class="cell large-4">
             <div class="card" style="width: 100%;">
                 <img src="{{ entry.image.url }}">
                 <div class="card-section" style="width: 100%;">
-                  <div class="blog-action">
-                    <a class="button alert" href="#">Agregar a Favoritos</a>
-                  </div>
+                <form class="blog-action" action="{% url 'favoritos_app:favorito' entry.id %}" method="post">{% csrf_token %}
+                    <button class="button alert" type="submit">Agregar a Favoritos</button>
+                </form>
                 </div>
             </div>
         </div>
+        
         <!-- FIN bloque llamada a la accion -->
 
     </div>

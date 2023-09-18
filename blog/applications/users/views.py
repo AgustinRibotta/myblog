@@ -7,7 +7,8 @@ from django.http import HttpResponseRedirect
 
 from django.views.generic import (
     View,
-    CreateView
+    CreateView,
+    UpdateView,
 )
 
 from django.views.generic.edit import (
@@ -18,6 +19,7 @@ from .forms import (
     UserRegisterForm, 
     LoginForm,
     UpdatePasswordForm,
+    UpdateForm,
 )
 #
 from .models import User
@@ -47,7 +49,7 @@ class UserRegisterView(FormView):
 class LoginUser(FormView):
     template_name = 'users/login.html'
     form_class = LoginForm
-    success_url = reverse_lazy('home_app:index')
+    success_url = reverse_lazy('favoritos_app:perfil')
 
     def form_valid(self, form):
         user = authenticate(
@@ -70,7 +72,7 @@ class LogoutView(View):
 
 
 class UpdatePasswordView(LoginRequiredMixin, FormView):
-    template_name = 'users/update.html'
+    template_name = 'users/update-password.html'
     form_class = UpdatePasswordForm
     success_url = reverse_lazy('users_app:user-login')
     login_url = reverse_lazy('users_app:user-login')
@@ -89,3 +91,19 @@ class UpdatePasswordView(LoginRequiredMixin, FormView):
 
         logout(self.request)
         return super(UpdatePasswordView, self).form_valid(form)
+    
+    
+class UpdateView(LoginRequiredMixin, UpdateView):
+    
+    template_name = 'users/update.html'
+    model = User
+    fields = [
+        'email',
+        'full_name',
+        'ocupation',
+        'genero',
+        'date_birth',
+    ]
+    success_url = reverse_lazy('favoritos_app:perfil')
+    login_url = reverse_lazy('favoritos_app:perfil')
+
