@@ -14,7 +14,7 @@ Este es un blog personal desarrollado con Django, donde puedes compartir tus pen
 ### Categorización de artículos.
 ### Búsqueda de artículos.
 
-![Blog](https://github.com/AgustinRibotta/myblog/blob/main/Readme-media/Perfil.png)
+![Blog](https://github.com/AgustinRibotta/myblog/blob/main/Readme-media/Blog.png)
 
 ### Interfaz de administración de Django para gestionar el contenido.
 
