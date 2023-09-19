@@ -6,24 +6,24 @@ Este es un blog personal desarrollado con Django, donde puedes compartir tus pen
 
 ### Página de inicio.
 
-![Home](Readme-media\Gomesuperior.png)
+![Home](https://github.com/AgustinRibotta/myblog/blob/main/Readme-media/Gomesuperior.png)
 
-![Home](Readme-media\HomeInferior.png)
+![Home](https://github.com/AgustinRibotta/myblog/blob/main/Readme-media/HomeInferior.png)
 
 ### Publicación de artículos y entradas de blog.
 ### Categorización de artículos.
 ### Búsqueda de artículos.
 
-![Blog](Readme-media\Blog.png)
+![Blog](https://github.com/AgustinRibotta/myblog/blob/main/Readme-media/Perfil.png)
 
 ### Interfaz de administración de Django para gestionar el contenido.
 
-![Admin](Readme-media\AdminDjango.png)
+![Admin](https://github.com/AgustinRibotta/myblog/blob/main/Readme-media/AdminDjango.png)
 
 ### Registro de suscriptores.
 ### Perfil de usuario con la posibilidad de agregar entradas a favoritos.
 
-![Perfil](Readme-media\Perfil.png)
+![Perfil](https://github.com/AgustinRibotta/myblog/blob/main/Readme-media/Perfil.png)
 
 ## Tecnologías Utilizadas
 
