@@ -1,6 +1,10 @@
+# Python
+from datetime import timedelta, datetime
 # Django
 from django.db import models
 from django.conf import settings
+from django.template.defaultfilters import slugify
+from django.urls import  reverse_lazy
 # Ckaeditor
 from ckeditor_uploader.fields import RichTextUploadingField
 # Django-model-util
@@ -82,6 +86,7 @@ class Entry (TimeStampedModel):
     puclic = models.BooleanField(default=False)
     portada = models.BooleanField(default=False)
     in_home = models.BooleanField(default=False)
+    # Posicionamiento en el SEO
     slug = models.SlugField(
         editable=False,
         max_length=300
@@ -98,4 +103,26 @@ class Entry (TimeStampedModel):
         
         return self.resume
     
-    
+    def save(self, *args, **kwargs):
+        # Calculamos el total de segundos de la hora actual
+        now = datetime.now()
+        total_time = timedelta(
+            hours=now.hour,
+            minutes=now.minute,
+            seconds=now.second 
+        )
+        seconds = int(total_time.total_seconds())
+        slug_unique = '%s %s' % (self.title, str(seconds))
+        
+        self.slug = slugify(slug_unique)
+        
+        super (Entry, self).save(*args, **kwargs)
+        
+    def get_absolute_url(self):
+
+        return reverse_lazy(
+            'entrada_app:detail-entry',
+            kwargs = {
+                'slug': self.slug
+            }
+        )

@@ -11,7 +11,7 @@ urlpatterns = [
         name='list-entry'
     ),
     path(
-        'entry/<pk>/',
+        'entry/<slug>/',
         views.EntryDetailView.as_view(),
         name='detail-entry'
     ),

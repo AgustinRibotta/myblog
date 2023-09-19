@@ -3,6 +3,13 @@
 
 {% load  static %}
 
+{% block title %}
+    {{ home.title }}
+{% endblock title %}
+{% block description %}
+   <meta name="description" content="{{ home.description }}"> 
+{% endblock description %}
+
 {% block content %}
 
 {% include "includes/header.html" %}
@@ -15,7 +22,7 @@
             <div class="card" style="width: 100%;">
                 <img src="{{ protada.image.url }}">
                 <div class="card-section">
-                  <h4><a href="{% url 'entrada_app:detail-entry' protada.id %}">{{ protada.title }}</a></h4>
+                  <h4><a href="{% url 'entrada_app:detail-entry' protada.slug %}">{{ protada.title }}</a></h4>
                   <p>{{ protada.resume | truncatechars:100 }}</p>
                 </div>
             </div>
@@ -31,7 +38,7 @@
                     <div class="card" style="width: 100%;">
                         <img src="{{ a.image.url }}" style="height: 150px;">
                         <div class="card-section">
-                        <h5><a href="{% url 'entrada_app:detail-entry' a.id %}">{{ a.title | truncatechars:40}}</a></h5>
+                        <h5><a href="{% url 'entrada_app:detail-entry' a.slug %}">{{ a.title | truncatechars:40}}</a></h5>
                         <p>{{ a.resume | truncatechars:100 }}</p>
                         </div>
                     </div>
@@ -47,9 +54,9 @@
     <!-- segundo bloque pantalla home -->
     <div class="grid-x align-center" style="margin-top: 1em;">
         <div class="cell small-12 large-10 callout secondary">
-            <h5>{{ home.title }}</h5>
+            <h5>{{ home.about_title }}</h5>
             <p>
-                {{ home.description }}
+                {{ home.about_text }}
             </p>
 
             <p>
@@ -86,7 +93,7 @@
                 <div class="card" style="width: 100%; ">
                     <img style="height: 150px;" src="{{ r.image.url }}">
                     <div class="card-section">
-                        <h4><a href="{% url 'entrada_app:detail-entry' r.id %}">{{ r.title | truncatechars:40}}</a></h4>
+                        <h4><a href="{% url 'entrada_app:detail-entry' r.slug %}">{{ r.title | truncatechars:40}}</a></h4>
                         <p>{{ r.resume | truncatechars:100 }}</p>
                     </div>
                 </div>

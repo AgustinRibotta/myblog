@@ -4,6 +4,21 @@
 
 {% block content %}
 
+{% block title %}
+    {{ entry.title }}
+{% endblock title %}
+
+{% block description %}
+   <meta name="description" content="{{ entry.resume }}"> 
+{% endblock description %}
+
+{% block tags %}
+    <meta name="keywords" content="
+    {% for t in entry.tag.all %}
+        {{ t.name }} ,
+    {% endfor %}"> 
+{% endblock tags %}
+
 {% include "includes/header.html" %}
 
 <div class="grid-container">
@@ -11,7 +26,7 @@
         <h3 class="cell">{{ object.title }}</h3>
 
         <!-- bloque de contenido del articulo -->
-        <div class="cell large-6">
+        <div class="cell large-8">
             <div class="cell callout primary">
                 <h5>Resumen:</h5>
                 <p>{{ entry.resume }}</p>

@@ -37,7 +37,7 @@
                             <h3 class="card-favoritos-body-titulo">{{ e.entry.title }}</h3>
                             <p class="card-favoritos-body-text">{{ e.entry.resume }}</p>
                             <form class="card-favoritos-body-actions" method="POST" action="{% url 'favoritos_app:delete' e.id %}">{% csrf_token %}
-                                <a class="button warning" href="{% url 'entrada_app:detail-entry' e.entry.id %}">Ver</a>
+                                <a class="button warning" href="{% url 'entrada_app:detail-entry' e.entry.slug %}">Ver</a>
                                 <button class="button alert" type="submit">Eliminar</button>
                             </form>
                         </div>
