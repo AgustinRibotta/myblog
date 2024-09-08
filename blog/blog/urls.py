@@ -20,7 +20,7 @@ urlpatterns_main = [
     re_path('', include('applications.entrada.urls')),
     re_path('', include('applications.favoritos.urls')),
     # Ckaeditor
-    re_path(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    path("ckeditor5/", include('django_ckeditor_5.urls')),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

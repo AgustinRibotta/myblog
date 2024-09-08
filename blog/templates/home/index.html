@@ -22,7 +22,9 @@
             <div class="card" style="width: 100%;">
                 <img src="{{ protada.image.url }}">
                 <div class="card-section">
-                  <h4><a href="{% url 'entrada_app:detail-entry' protada.slug %}">{{ protada.title }}</a></h4>
+                    {% if protada %}
+                    <h4><a href="{% url 'entrada_app:detail-entry' protada.slug %}">{{ protada.title }}</a></h4>
+                  {% endif %}
                   <p>{{ protada.resume | truncatechars:100 }}</p>
                 </div>
             </div>

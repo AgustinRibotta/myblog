@@ -19,13 +19,13 @@ class Home (TimeStampedModel):
     contac_email = models.EmailField(
         'Email de Contacto', 
         blank=True,
-        null=True
+        null=True,
     )
     phone = models.CharField(
         'Telefono Contacto', 
         max_length=20,
         blank=True,
-        null=True
+        null=True,
     )
     
     class Meta:
@@ -41,7 +41,7 @@ class Home (TimeStampedModel):
 # Suscribers
 class Suscribers(TimeStampedModel):
     
-    email = models.CharField()
+    email = models.CharField( max_length=255)
     
     class Meta:
     
@@ -60,7 +60,7 @@ class Contact(TimeStampedModel):
         'Nombres',
         max_length=60
     )
-    email = models.CharField()
+    email = models.CharField( max_length=20)
     messagge = models.TextField()
     
     class Meta:
